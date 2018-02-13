@@ -12,12 +12,12 @@ class WeatherTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkManager.GetWeatherAt(latitude: "34.050493", longitude: "-118.459137") { (success, dict) in
+            print(dict ?? "Return null")
+        }
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     // MARK: - Table view data source
 

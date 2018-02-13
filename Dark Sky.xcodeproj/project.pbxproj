@@ -15,6 +15,8 @@
 		141776002032803300B93917 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141775FF2032803300B93917 /* DetailViewController.swift */; };
 		14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14177601203280A200B93917 /* WeatherTableViewCell.swift */; };
 		141776052032A76800B93917 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776042032A76800B93917 /* BaseModel.swift */; };
+		141776082032AEF100B93917 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776072032AEF100B93917 /* NetworkManager.swift */; };
+		1417760A2032CBBE00B93917 /* DefaultLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141776092032CBBE00B93917 /* DefaultLocations.plist */; };
 		8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		141775FF2032803300B93917 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14177601203280A200B93917 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		141776042032A76800B93917 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		141776072032AEF100B93917 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		141776092032CBBE00B93917 /* DefaultLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultLocations.plist; sourceTree = "<group>"; };
 		2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dark_Sky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,8 +71,10 @@
 		140DBA2C2032451100D40D67 /* Dark Sky */ = {
 			isa = PBXGroup;
 			children = (
+				1417760B2032D1C300B93917 /* Tools */,
 				140DBA2D2032451100D40D67 /* AppDelegate.swift */,
 				140DBA4420326D3300D40D67 /* ThirdSDK */,
+				141776062032AE3900B93917 /* Services */,
 				140DBA4020326C8A00D40D67 /* Model */,
 				140DBA4220326C9C00D40D67 /* ViewController */,
 				140DBA4120326C9400D40D67 /* View */,
@@ -124,8 +130,24 @@
 				140DBA362032451100D40D67 /* LaunchScreen.storyboard */,
 				140DBA312032451100D40D67 /* Main.storyboard */,
 				140DBA342032451100D40D67 /* Assets.xcassets */,
+				141776092032CBBE00B93917 /* DefaultLocations.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		141776062032AE3900B93917 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				141776072032AEF100B93917 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1417760B2032D1C300B93917 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		AB3107F10BFCA0A03DFD9883 /* Frameworks */ = {
@@ -208,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140DBA382032451100D40D67 /* LaunchScreen.storyboard in Resources */,
+				1417760A2032CBBE00B93917 /* DefaultLocations.plist in Resources */,
 				140DBA352032451100D40D67 /* Assets.xcassets in Resources */,
 				140DBA332032451100D40D67 /* Main.storyboard in Resources */,
 			);
@@ -268,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141776082032AEF100B93917 /* NetworkManager.swift in Sources */,
 				14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */,
 				141776002032803300B93917 /* DetailViewController.swift in Sources */,
 				141775FE2032801B00B93917 /* WeatherTableViewController.swift in Sources */,
@@ -413,7 +437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6NGNVCC95;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "Dark Sky/Info.plist";
+				INFOPLIST_FILE = "Dark Sky/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goat.Dark-Sky";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6NGNVCC95;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "Dark Sky/Info.plist";
+				INFOPLIST_FILE = "Dark Sky/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goat.Dark-Sky";
 				PRODUCT_NAME = "$(TARGET_NAME)";

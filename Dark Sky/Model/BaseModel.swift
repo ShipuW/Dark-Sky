@@ -8,6 +8,8 @@
 
 import UIKit
 
-class BaseModel: NSObject {
-
+class BaseModel {
+    required init() {
+        
+    }
 }
