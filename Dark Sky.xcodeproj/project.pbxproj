@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		140DBA2E2032451100D40D67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140DBA2D2032451100D40D67 /* AppDelegate.swift */; };
-		140DBA302032451100D40D67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140DBA2F2032451100D40D67 /* ViewController.swift */; };
 		140DBA332032451100D40D67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140DBA312032451100D40D67 /* Main.storyboard */; };
 		140DBA352032451100D40D67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 140DBA342032451100D40D67 /* Assets.xcassets */; };
 		140DBA382032451100D40D67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140DBA362032451100D40D67 /* LaunchScreen.storyboard */; };
+		141775FE2032801B00B93917 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141775FD2032801B00B93917 /* WeatherTableViewController.swift */; };
+		141776002032803300B93917 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141775FF2032803300B93917 /* DetailViewController.swift */; };
+		14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14177601203280A200B93917 /* WeatherTableViewCell.swift */; };
+		141776052032A76800B93917 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776042032A76800B93917 /* BaseModel.swift */; };
+		8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		140DBA2A2032451100D40D67 /* Dark Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dark Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		140DBA2D2032451100D40D67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		140DBA2F2032451100D40D67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		140DBA322032451100D40D67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		140DBA342032451100D40D67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		140DBA372032451100D40D67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		140DBA392032451100D40D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		141775FD2032801B00B93917 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
+		141775FF2032803300B93917 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		14177601203280A200B93917 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		141776042032A76800B93917 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dark_Sky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.debug.xcconfig"; sourceTree = "<group>"; };
+		B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				140DBA2C2032451100D40D67 /* Dark Sky */,
 				140DBA2B2032451100D40D67 /* Products */,
+				F2261E2F4C2BFC9DAAA67523 /* Pods */,
+				AB3107F10BFCA0A03DFD9883 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +68,81 @@
 			isa = PBXGroup;
 			children = (
 				140DBA2D2032451100D40D67 /* AppDelegate.swift */,
-				140DBA2F2032451100D40D67 /* ViewController.swift */,
-				140DBA312032451100D40D67 /* Main.storyboard */,
-				140DBA342032451100D40D67 /* Assets.xcassets */,
-				140DBA362032451100D40D67 /* LaunchScreen.storyboard */,
-				140DBA392032451100D40D67 /* Info.plist */,
+				140DBA4420326D3300D40D67 /* ThirdSDK */,
+				140DBA4020326C8A00D40D67 /* Model */,
+				140DBA4220326C9C00D40D67 /* ViewController */,
+				140DBA4120326C9400D40D67 /* View */,
+				140DBA4620326E1100D40D67 /* Resources */,
 			);
 			path = "Dark Sky";
+			sourceTree = "<group>";
+		};
+		140DBA4020326C8A00D40D67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				141776042032A76800B93917 /* BaseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		140DBA4120326C9400D40D67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				140DBA4320326CAE00D40D67 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		140DBA4220326C9C00D40D67 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				141775FD2032801B00B93917 /* WeatherTableViewController.swift */,
+				141775FF2032803300B93917 /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		140DBA4320326CAE00D40D67 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				14177601203280A200B93917 /* WeatherTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		140DBA4420326D3300D40D67 /* ThirdSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdSDK;
+			sourceTree = "<group>";
+		};
+		140DBA4620326E1100D40D67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				140DBA392032451100D40D67 /* Info.plist */,
+				140DBA362032451100D40D67 /* LaunchScreen.storyboard */,
+				140DBA312032451100D40D67 /* Main.storyboard */,
+				140DBA342032451100D40D67 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB3107F10BFCA0A03DFD9883 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2261E2F4C2BFC9DAAA67523 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */,
+				B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 140DBA3C2032451100D40D67 /* Build configuration list for PBXNativeTarget "Dark Sky" */;
 			buildPhases = (
+				997E4D9C8A848BD8B02A6963 /* [CP] Check Pods Manifest.lock */,
 				140DBA262032451100D40D67 /* Sources */,
 				140DBA272032451100D40D67 /* Frameworks */,
 				140DBA282032451100D40D67 /* Resources */,
+				0A396D7EE9A4DC4C36FA5324 /* [CP] Embed Pods Frameworks */,
+				07563732AB050836929DBE6F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +215,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07563732AB050836929DBE6F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A396D7EE9A4DC4C36FA5324 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		997E4D9C8A848BD8B02A6963 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		140DBA262032451100D40D67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140DBA302032451100D40D67 /* ViewController.swift in Sources */,
+				14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */,
+				141776002032803300B93917 /* DetailViewController.swift in Sources */,
+				141775FE2032801B00B93917 /* WeatherTableViewController.swift in Sources */,
 				140DBA2E2032451100D40D67 /* AppDelegate.swift in Sources */,
+				141776052032A76800B93917 /* BaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,10 +407,12 @@
 		};
 		140DBA3D2032451100D40D67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6NGNVCC95;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Dark Sky/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goat.Dark-Sky";
@@ -287,10 +424,12 @@
 		};
 		140DBA3E2032451100D40D67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6NGNVCC95;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Dark Sky/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goat.Dark-Sky";
