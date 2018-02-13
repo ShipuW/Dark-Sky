@@ -134,11 +134,11 @@
 		140DBA4620326E1100D40D67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				141776092032CBBE00B93917 /* DefaultLocations.plist */,
 				140DBA392032451100D40D67 /* Info.plist */,
 				140DBA362032451100D40D67 /* LaunchScreen.storyboard */,
 				140DBA312032451100D40D67 /* Main.storyboard */,
 				140DBA342032451100D40D67 /* Assets.xcassets */,
-				141776092032CBBE00B93917 /* DefaultLocations.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

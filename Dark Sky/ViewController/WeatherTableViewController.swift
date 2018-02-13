@@ -12,16 +12,18 @@ import UIKit
 class WeatherTableViewController: UITableViewController {
 
     var weatherArray = [DailyModel]()
-    var latitude:String = "";
-    var longitude:String = "";
+    var latitude:String = ""
+    var longitude:String = ""
+    
+    var authorizedLocation:Bool = false
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.LoadData()
         self.LoadUI()
-        self.RefreshTableView()
+        self.LoadData()
+
 //        LocationManager.sharedInstance.getLocation { (location, error) in
 //            print(location ?? "No location get")
 //        }
@@ -29,17 +31,38 @@ class WeatherTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    func LoadData() {
-        
-        latitude = "34.050493"
-        longitude = "-118.459137"
-    }
-    
     func LoadUI() {
         self.title = "Daily Weather"
     }
+    
+    
+    func LoadData() {
+        
+        if let path = Bundle.main.path(forResource: "DefaultLocations", ofType: "plist") {
+            let arrayRoot = NSArray(contentsOfFile: path)
+            if let array = arrayRoot {
+                let dict = array[0] as! Dictionary<String, Any>
+                latitude = dict["latitude"] as! String
+                longitude = dict["longitude"] as! String
+            }
+        }
+        
+        LocationManager.sharedInstance.getLocation { (location, error) in
+            if error == nil {
+                self.authorizedLocation = true
+                self.latitude = String(describing: location?.coordinate.latitude)
+                self.longitude = String(describing: location?.coordinate.longitude)
+            } else {
+                self.authorizedLocation = false
+            }
+        }
+        self.refreshTableView()
+        
+    }
+    
+    
 
-    func RefreshTableView() {
+    func refreshTableView() {
         NetworkManager.GetWeatherAt(latitude: latitude, longitude: longitude) { (success, error, dict) in
            
             self.weatherArray = DailyModel.ArrayFromDict(dict: dict!["daily"] as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
