@@ -8,28 +8,41 @@
 
 import UIKit
 
+
 class WeatherTableViewController: UITableViewController {
 
     var weatherArray = [DailyModel]()
+    var latitude:String = "";
+    var longitude:String = "";
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.LoadData()
+        self.LoadUI()
         self.RefreshTableView()
+//        LocationManager.sharedInstance.getLocation { (location, error) in
+//            print(location ?? "No location get")
+//        }
+//        LocationManager.sharedInstance.authorizedLocation()
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    func LoadData() {
+        
+        latitude = "34.050493"
+        longitude = "-118.459137"
+    }
     
     func LoadUI() {
-        self.navigationItem.title = "Daily Weather"
+        self.title = "Daily Weather"
     }
 
     func RefreshTableView() {
-        NetworkManager.GetWeatherAt(latitude: "34.050493", longitude: "-118.459137") { (success, error, dict) in
+        NetworkManager.GetWeatherAt(latitude: latitude, longitude: longitude) { (success, error, dict) in
            
-            let array = DailyModel.ArrayFromDict(dict: dict!["daily"] as! Dictionary<String, Any>, keyWord: "data")
-            print((array[0] as! DailyModel).time ?? "some")
+            self.weatherArray = DailyModel.ArrayFromDict(dict: dict!["daily"] as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
             
         }
         self.tableView.reloadData()

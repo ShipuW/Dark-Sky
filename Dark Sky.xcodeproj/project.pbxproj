@@ -18,6 +18,8 @@
 		141776082032AEF100B93917 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776072032AEF100B93917 /* NetworkManager.swift */; };
 		1417760A2032CBBE00B93917 /* DefaultLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141776092032CBBE00B93917 /* DefaultLocations.plist */; };
 		1417760D2032DA9C00B93917 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417760C2032DA9C00B93917 /* DailyModel.swift */; };
+		1417760F20337EEC00B93917 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1417760E20337EEB00B93917 /* CoreLocation.framework */; };
+		1417761120337F8D00B93917 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417761020337F8D00B93917 /* LocationManager.swift */; };
 		8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		141776072032AEF100B93917 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		141776092032CBBE00B93917 /* DefaultLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultLocations.plist; sourceTree = "<group>"; };
 		1417760C2032DA9C00B93917 /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		1417760E20337EEB00B93917 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1417761020337F8D00B93917 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dark_Sky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1417760F20337EEC00B93917 /* CoreLocation.framework in Frameworks */,
 				8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,13 +78,13 @@
 		140DBA2C2032451100D40D67 /* Dark Sky */ = {
 			isa = PBXGroup;
 			children = (
-				1417760B2032D1C300B93917 /* Tools */,
 				140DBA2D2032451100D40D67 /* AppDelegate.swift */,
-				140DBA4420326D3300D40D67 /* ThirdSDK */,
 				141776062032AE3900B93917 /* Services */,
 				140DBA4020326C8A00D40D67 /* Model */,
 				140DBA4220326C9C00D40D67 /* ViewController */,
 				140DBA4120326C9400D40D67 /* View */,
+				1417760B2032D1C300B93917 /* Tools */,
+				140DBA4420326D3300D40D67 /* ThirdSDK */,
 				140DBA4620326E1100D40D67 /* Resources */,
 			);
 			path = "Dark Sky";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				141776072032AEF100B93917 /* NetworkManager.swift */,
+				1417761020337F8D00B93917 /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -156,6 +162,7 @@
 		AB3107F10BFCA0A03DFD9883 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1417760E20337EEB00B93917 /* CoreLocation.framework */,
 				2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */,
 			);
 			name = Frameworks;
@@ -296,6 +303,7 @@
 			files = (
 				141776082032AEF100B93917 /* NetworkManager.swift in Sources */,
 				14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */,
+				1417761120337F8D00B93917 /* LocationManager.swift in Sources */,
 				141776002032803300B93917 /* DetailViewController.swift in Sources */,
 				141775FE2032801B00B93917 /* WeatherTableViewController.swift in Sources */,
 				1417760D2032DA9C00B93917 /* DailyModel.swift in Sources */,
