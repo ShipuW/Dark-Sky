@@ -17,6 +17,7 @@
 		141776052032A76800B93917 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776042032A76800B93917 /* BaseModel.swift */; };
 		141776082032AEF100B93917 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776072032AEF100B93917 /* NetworkManager.swift */; };
 		1417760A2032CBBE00B93917 /* DefaultLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141776092032CBBE00B93917 /* DefaultLocations.plist */; };
+		1417760D2032DA9C00B93917 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417760C2032DA9C00B93917 /* DailyModel.swift */; };
 		8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		141776042032A76800B93917 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		141776072032AEF100B93917 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		141776092032CBBE00B93917 /* DefaultLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultLocations.plist; sourceTree = "<group>"; };
+		1417760C2032DA9C00B93917 /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
 		2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dark_Sky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				141776042032A76800B93917 /* BaseModel.swift */,
+				1417760C2032DA9C00B93917 /* DailyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				14177602203280A200B93917 /* WeatherTableViewCell.swift in Sources */,
 				141776002032803300B93917 /* DetailViewController.swift in Sources */,
 				141775FE2032801B00B93917 /* WeatherTableViewController.swift in Sources */,
+				1417760D2032DA9C00B93917 /* DailyModel.swift in Sources */,
 				140DBA2E2032451100D40D67 /* AppDelegate.swift in Sources */,
 				141776052032A76800B93917 /* BaseModel.swift in Sources */,
 			);

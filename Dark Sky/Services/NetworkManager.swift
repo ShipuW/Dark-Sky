@@ -14,7 +14,7 @@ class NetworkManager {
     private let key = "8beda6d97d57aa96d640ed7a6c2bc79f"
     
     
-    typealias CompletionHandler = (_ success:Bool, _ responseData:Any?) -> Void
+    typealias CompletionHandler = (_ success:Bool, _ error:Error?, _ responseData:Dictionary<String, Any>?) -> Void
     
     /// singleton
     static let shared = NetworkManager()
@@ -31,9 +31,10 @@ class NetworkManager {
             
                 switch response.result {
                 case .success:
-                    completionHandler(true, response.result.value)
+                    let jsonResult = response.result.value as! Dictionary<String, Any>
+                    completionHandler(true, nil, jsonResult)
                 case .failure(let error):
-                    completionHandler(false, error)
+                    completionHandler(false, error, nil)
                 }
             
             }
