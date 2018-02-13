@@ -23,16 +23,14 @@ class WeatherTableViewController: UITableViewController {
         super.viewDidLoad()
         self.LoadUI()
         self.LoadData()
+//        self.refreshTableView()
 
-//        LocationManager.sharedInstance.getLocation { (location, error) in
-//            print(location ?? "No location get")
-//        }
-//        LocationManager.sharedInstance.authorizedLocation()
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     func LoadUI() {
         self.title = "Daily Weather"
+        let rightBarButton = UIBarButtonItem(image: UIImage.init(named: "location"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarButtonTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     
@@ -55,12 +53,25 @@ class WeatherTableViewController: UITableViewController {
             } else {
                 self.authorizedLocation = false
             }
+//            self.refreshTableView()
         }
-        self.refreshTableView()
+        
         
     }
     
-    
+    @objc func rightBarButtonTapped(_ sender:UIBarButtonItem!)
+    {
+        LocationManager.sharedInstance.authorizedAndGetLocation { (location, error) in
+            if error == nil {
+                self.authorizedLocation = true
+                self.latitude = String(describing: location?.coordinate.latitude)
+                self.longitude = String(describing: location?.coordinate.longitude)
+            } else {
+                self.authorizedLocation = false
+            }
+//            self.refreshTableView()
+        }
+    }
 
     func refreshTableView() {
         NetworkManager.GetWeatherAt(latitude: latitude, longitude: longitude) { (success, error, dict) in

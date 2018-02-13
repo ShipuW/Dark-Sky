@@ -83,12 +83,12 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     
     //MARK:- Public Methods
     
-    func authorizedLocation(){
+    func authorizedAndGetLocation(completionHandler:@escaping LocationClosure){
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager = CLLocationManager()
             locationManager?.requestWhenInUseAuthorization()
-
         }
+        getLocation(completionHandler: completionHandler)
     }
     
     
