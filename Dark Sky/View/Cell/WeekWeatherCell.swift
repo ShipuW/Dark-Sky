@@ -11,9 +11,6 @@ import UIKit
 class WeekWeatherCell: UITableViewCell {
 
     
-    
-    
-    
     @IBOutlet weak var iconOfWeather: UIImageView!
     @IBOutlet weak var labelOfDate: UILabel!
     @IBOutlet weak var labelOfHighTemp: UILabel!

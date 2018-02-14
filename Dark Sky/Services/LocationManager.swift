@@ -10,17 +10,7 @@ import Foundation
 import CoreLocation
 
 class LocationManager: NSObject,CLLocationManagerDelegate {
-    
-    enum LocationErrors: String {
-        case denied = "Locations are turned off. Please turn it on in Settings"
-        case restricted = "Locations are restricted"
-        case notDetermined = "Locations are not determined yet"
-        case notFetched = "Unable to fetch location"
-        case invalidLocation = "Invalid Location"
-        case reverseGeocodingFailed = "Reverse Geocoding Failed"
-    }
-    
-    
+
     static let sharedInstance: LocationManager = {
         let instance = LocationManager()
         // setup code
@@ -50,8 +40,6 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationManager?.desiredAccuracy = locationAccuracy
         locationManager?.delegate = self
         
-        
-        
     }
     
     private func startPositioning() {
@@ -63,10 +51,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             self.didComplete(location: nil,error: NSError(
                 domain: self.classForCoder.description(),
                 code:Int(CLAuthorizationStatus.denied.rawValue),
-                userInfo:
-                [NSLocalizedDescriptionKey:LocationErrors.notFetched.rawValue,
-                 NSLocalizedFailureReasonErrorKey:LocationErrors.notFetched.rawValue,
-                 NSLocalizedRecoverySuggestionErrorKey:LocationErrors.notFetched.rawValue]))
+                userInfo:nil))
             lastLocation = nil
             return
         }
@@ -87,8 +72,6 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
     }
     
-    
-    
     func getLocation(completionHandler:@escaping LocationClosure) {
         
         //Cancel previous timer
@@ -103,16 +86,16 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             startPositioning()
         case .notDetermined,.restricted, .denied:
             NSLog("Authoried failed")
-            didComplete(location: nil,error: nil)
+            didComplete(location: nil,error: NSError(
+                domain: self.classForCoder.description(),
+                code:Int(CLAuthorizationStatus.denied.rawValue),
+                userInfo:nil))
         }
-
     }
-    
     
     func setFetchTimerForLocation(seconds:Double) {
         locationFetchTimeInSeconds = seconds
     }
-    
     
     
     //MARK:- CLLocationManager Delegates
@@ -130,27 +113,21 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             startPositioning()
 
         case .denied:
-            let deniedError = NSError(
+            didComplete(location: nil,error: NSError(
                 domain: self.classForCoder.description(),
                 code:Int(CLAuthorizationStatus.denied.rawValue),
-                userInfo:
-                [NSLocalizedDescriptionKey:LocationErrors.denied.rawValue,
-                 NSLocalizedFailureReasonErrorKey:LocationErrors.denied.rawValue,
-                 NSLocalizedRecoverySuggestionErrorKey:LocationErrors.denied.rawValue])
-            
-            didComplete(location: nil,error: deniedError)
+                userInfo:nil))
             
         case .restricted:
             didComplete(location: nil,error: NSError(
                 domain: self.classForCoder.description(),
                 code:Int(CLAuthorizationStatus.restricted.rawValue),
-                userInfo: nil))
+                userInfo:nil))
             
         case .notDetermined:
             self.locationManager?.requestWhenInUseAuthorization()
         }
     }
-    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)

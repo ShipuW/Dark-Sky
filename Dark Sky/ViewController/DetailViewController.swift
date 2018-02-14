@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var summaryTextView: UITextView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ConfigUI()
