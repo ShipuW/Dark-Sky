@@ -50,14 +50,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationManager?.desiredAccuracy = locationAccuracy
         locationManager?.delegate = self
         
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager?.startUpdatingLocation()
-            startPositioning()
-        case .notDetermined,.restricted, .denied:
-            NSLog("Authoried failed")
-            didComplete(location: nil,error: nil)
-        }
+        
         
     }
     
@@ -84,11 +77,14 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     //MARK:- Public Methods
     
     func authorizedAndGetLocation(completionHandler:@escaping LocationClosure){
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        locationCompletionHandler = completionHandler
+        lastLocation = nil
         if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager = CLLocationManager()
+            self.setupLocationManager()
             locationManager?.requestWhenInUseAuthorization()
         }
-        getLocation(completionHandler: completionHandler)
+        
     }
     
     
@@ -100,6 +96,15 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         locationCompletionHandler = completionHandler
         lastLocation = nil
         self.setupLocationManager()
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager?.startUpdatingLocation()
+            startPositioning()
+        case .notDetermined,.restricted, .denied:
+            NSLog("Authoried failed")
+            didComplete(location: nil,error: nil)
+        }
 
     }
     
