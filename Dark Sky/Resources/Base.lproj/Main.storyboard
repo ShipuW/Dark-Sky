@@ -36,13 +36,32 @@
                     <view key="view" contentMode="scaleToFill" id="YlJ-Xb-JzS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="summary" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9A-tB-Pap">
+                                <rect key="frame" x="62" y="208.5" width="250" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="ZcF-VG-pwY"/>
+                                    <constraint firstAttribute="height" constant="250" id="jaE-rp-cq5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F9A-tB-Pap" firstAttribute="centerY" secondItem="YlJ-Xb-JzS" secondAttribute="centerY" id="UkO-xh-A4y"/>
+                            <constraint firstItem="F9A-tB-Pap" firstAttribute="centerX" secondItem="YlJ-Xb-JzS" secondAttribute="centerX" id="f0y-hb-Ju8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Oge-ib-fOk"/>
                     </view>
+                    <connections>
+                        <outlet property="summaryTextView" destination="F9A-tB-Pap" id="rSW-uL-pSi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="na9-M5-Pcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="-155"/>
+            <point key="canvasLocation" x="1181.5999999999999" y="-155.17241379310346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d4C-pt-oVX">
