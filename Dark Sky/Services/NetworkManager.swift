@@ -16,18 +16,19 @@ class NetworkManager {
     
     typealias CompletionHandler = (_ success:Bool, _ error:Error?, _ responseData:Dictionary<String, Any>?) -> Void
     
-    /// singleton
+    /// Singleton
+    
     static let shared: NetworkManager = {
         let instance = NetworkManager()
         // setup code
         return instance
     }()
     
+    // Class Functions
     
     class func GetWeatherAt(latitude:String, longitude:String, completionHandler: @escaping CompletionHandler) -> Void {
         self.shared.GetWeatherData(latitude: latitude, longitude: longitude, completionHandler: completionHandler)
     }
-    
     
     // GET Funtions
     

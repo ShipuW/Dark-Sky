@@ -124,7 +124,6 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             self.locationManager?.startUpdatingLocation()
             startPositioning()
 
-            
         case .denied:
             let deniedError = NSError(
                 domain: self.classForCoder.description(),
@@ -141,12 +140,9 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
                 domain: self.classForCoder.description(),
                 code:Int(CLAuthorizationStatus.restricted.rawValue),
                 userInfo: nil))
-        
-            break
             
         case .notDetermined:
             self.locationManager?.requestWhenInUseAuthorization()
-            break
         }
     }
     

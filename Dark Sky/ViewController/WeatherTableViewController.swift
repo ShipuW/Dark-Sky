@@ -8,6 +8,7 @@
 
 import UIKit
 
+private let reuseID = "WeekWeatherCell"
 
 class WeatherTableViewController: UITableViewController {
 
@@ -23,7 +24,7 @@ class WeatherTableViewController: UITableViewController {
         super.viewDidLoad()
         self.LoadUI()
         self.LoadData()
-//        self.refreshTableView()
+        self.refreshTableView()
 
     }
 
@@ -31,6 +32,9 @@ class WeatherTableViewController: UITableViewController {
         self.title = "Daily Weather"
         let rightBarButton = UIBarButtonItem(image: UIImage.init(named: "location"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        // Register Cell
+        tableView.register(UINib(nibName: "WeekWeatherCell", bundle: Bundle.main), forCellReuseIdentifier: reuseID)
     }
     
     
@@ -45,15 +49,20 @@ class WeatherTableViewController: UITableViewController {
             }
         }
         
+        
         LocationManager.sharedInstance.getLocation { (location, error) in
             if error == nil {
                 self.authorizedLocation = true
-                self.latitude = String(describing: location?.coordinate.latitude)
-                self.longitude = String(describing: location?.coordinate.longitude)
+                if let lat = location?.coordinate.latitude {
+                    self.latitude = String(format: "%f", lat)
+                }
+                if let lon = location?.coordinate.longitude {
+                    self.longitude = String(format: "%f", lon)
+                }
             } else {
                 self.authorizedLocation = false
             }
-//            self.refreshTableView()
+            self.refreshTableView()
         }
         
         
@@ -64,22 +73,33 @@ class WeatherTableViewController: UITableViewController {
         LocationManager.sharedInstance.authorizedAndGetLocation { (location, error) in
             if error == nil {
                 self.authorizedLocation = true
-                self.latitude = String(describing: location?.coordinate.latitude)
-                self.longitude = String(describing: location?.coordinate.longitude)
+                if let lat = location?.coordinate.latitude {
+                    self.latitude = String(format: "%f", lat)
+                }
+                if let lon = location?.coordinate.longitude {
+                    self.longitude = String(format: "%f", lon)
+                }
             } else {
                 self.authorizedLocation = false
             }
-//            self.refreshTableView()
+            self.refreshTableView()
         }
     }
 
+    
+    
     func refreshTableView() {
         NetworkManager.GetWeatherAt(latitude: latitude, longitude: longitude) { (success, error, dict) in
-           
-            self.weatherArray = DailyModel.ArrayFromDict(dict: dict!["daily"] as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
+            if let dailyDict = dict!["daily"] {
+                self.weatherArray = DailyModel.ArrayFromDict(dict: dailyDict as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
+                self.tableView.reloadData()
+                return
+            }
             
+            if let errorDict = dict!["error"] {
+                print(errorDict)
+            }
         }
-        self.tableView.reloadData()
     }
     
     
@@ -97,9 +117,12 @@ class WeatherTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as!WeekWeatherCell
+        
+        let dailyResult = weatherArray[indexPath.row]
+        
+        cell.configureForDailyResult(dailyResult)
+        
         return cell
     }
     
