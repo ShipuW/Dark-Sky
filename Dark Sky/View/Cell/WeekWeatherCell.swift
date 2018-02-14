@@ -10,6 +10,11 @@ import UIKit
 
 class WeekWeatherCell: UITableViewCell {
 
+    
+    
+    
+    
+    @IBOutlet weak var iconOfWeather: UIImageView!
     @IBOutlet weak var labelOfDate: UILabel!
     @IBOutlet weak var labelOfHighTemp: UILabel!
     @IBOutlet weak var labelOfLowTemp: UILabel!
@@ -25,7 +30,9 @@ class WeekWeatherCell: UITableViewCell {
         
         self.dailyModel = dailyResult
         
-        labelOfDate.text = TimeConverter.getDateStringFromUTC(time: (self.dailyModel?.time!)!)
+        iconOfWeather.image = UIImage.init(named: (self.dailyModel?.icon)!)
+        
+        labelOfDate.text = TimeConverter.getWeekdayStringFromUTC(time: (self.dailyModel?.time!)!)
 
         labelOfHighTemp.text = String(format: "H:%.2f", (self.dailyModel?.tempHigh)!)
         

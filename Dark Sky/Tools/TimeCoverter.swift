@@ -18,4 +18,14 @@ class TimeConverter {
     
         return dateFormatter.string(from: date)
     }
+    
+    class func getWeekdayStringFromUTC(time:Int64) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(time))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "EEE"
+        
+        return dateFormatter.string(from: date)
+    }
 }
