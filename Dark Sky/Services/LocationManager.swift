@@ -62,6 +62,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     //MARK:- Public Methods
     
     func authorizedAndGetLocation(completionHandler:@escaping LocationClosure){
+        
+        //Cancel previous timer
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         locationCompletionHandler = completionHandler
         lastLocation = nil

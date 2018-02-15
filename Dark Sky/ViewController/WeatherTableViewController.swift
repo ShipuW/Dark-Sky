@@ -35,6 +35,30 @@ class WeatherTableViewController: UITableViewController {
         
         // Register Cell
         tableView.register(UINib(nibName: "WeekWeatherCell", bundle: Bundle.main), forCellReuseIdentifier: reuseID)
+        
+        // Init refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: UIControlEvents.valueChanged)
+        
+    }
+    
+    @objc func pullToRefresh(_ sender:AnyObject)
+    {
+        LocationManager.sharedInstance.getLocation { (location, error) in
+            if error == nil {
+                self.authorizedLocation = true
+                if let lat = location?.coordinate.latitude {
+                    self.latitude = String(format: "%f", lat)
+                }
+                if let lon = location?.coordinate.longitude {
+                    self.longitude = String(format: "%f", lon)
+                }
+            } else {
+                self.authorizedLocation = false
+            }
+            self.refreshTableView()
+        }
     }
     
     
@@ -48,7 +72,6 @@ class WeatherTableViewController: UITableViewController {
                 longitude = dict["longitude"] as! String
             }
         }
-        
         
         LocationManager.sharedInstance.getLocation { (location, error) in
             if error == nil {
@@ -64,8 +87,6 @@ class WeatherTableViewController: UITableViewController {
             }
             self.refreshTableView()
         }
-        
-        
     }
     
     @objc func rightBarButtonTapped(_ sender:UIBarButtonItem!)
@@ -93,12 +114,13 @@ class WeatherTableViewController: UITableViewController {
             if let dailyDict = dict!["daily"] {
                 self.weatherArray = DailyModel.ArrayFromDict(dict: dailyDict as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
                 self.tableView.reloadData()
-                return
             }
             
             if let errorDict = dict!["error"] {
                 print(errorDict)
             }
+    
+            self.refreshControl?.endRefreshing()
         }
     }
     
