@@ -22,6 +22,7 @@
 		1417761A2033BAA900B93917 /* WeekWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141776182033BAA900B93917 /* WeekWeatherCell.swift */; };
 		1417761B2033BAA900B93917 /* WeekWeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141776192033BAA900B93917 /* WeekWeatherCell.xib */; };
 		1417761D2033BE7A00B93917 /* TimeCoverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417761C2033BE7A00B93917 /* TimeCoverter.swift */; };
+		149BCFDE2036D8AF000AB410 /* AlertDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BCFDD2036D8AF000AB410 /* AlertDisplay.swift */; };
 		8E2907FEC9A11BC29C067346 /* Pods_Dark_Sky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		141776182033BAA900B93917 /* WeekWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherCell.swift; sourceTree = "<group>"; };
 		141776192033BAA900B93917 /* WeekWeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekWeatherCell.xib; sourceTree = "<group>"; };
 		1417761C2033BE7A00B93917 /* TimeCoverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCoverter.swift; sourceTree = "<group>"; };
+		149BCFDD2036D8AF000AB410 /* AlertDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplay.swift; sourceTree = "<group>"; };
 		2948778BF098BA7A9E1993E1 /* Pods_Dark_Sky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dark_Sky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743E917F5DF6E44AA7166EC6 /* Pods-Dark Sky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B81C00383D258AA63F2492 /* Pods-Dark Sky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dark Sky.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dark Sky/Pods-Dark Sky.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				1417761C2033BE7A00B93917 /* TimeCoverter.swift */,
+				149BCFDD2036D8AF000AB410 /* AlertDisplay.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				1417760D2032DA9C00B93917 /* DailyModel.swift in Sources */,
 				140DBA2E2032451100D40D67 /* AppDelegate.swift in Sources */,
 				141776052032A76800B93917 /* BaseModel.swift in Sources */,
+				149BCFDE2036D8AF000AB410 /* AlertDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

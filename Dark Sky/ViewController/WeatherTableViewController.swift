@@ -111,6 +111,11 @@ class WeatherTableViewController: UITableViewController {
     
     func refreshTableView() {
         NetworkManager.GetWeatherAt(latitude: latitude, longitude: longitude) { (success, error, dict) in
+            if error != nil {
+                AlertDisplay.ShowAlert(title: "Error", message: "Please check your network.", controller: self)
+                self.refreshControl?.endRefreshing()
+                return;
+            }
             if let dailyDict = dict!["daily"] {
                 self.weatherArray = DailyModel.ArrayFromDict(dict: dailyDict as! Dictionary<String, Any>, keyWord: "data") as! [DailyModel]
                 self.tableView.reloadData()
