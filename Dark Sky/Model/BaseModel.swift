@@ -12,7 +12,7 @@ class BaseModel {
 
     var time : Int64?
     
-    enum WeatherKeys : Int {
+    enum Keys : Int {
         case KeyTime
         func toKey() -> String! {
             switch self {
@@ -23,7 +23,7 @@ class BaseModel {
     }
     
     required init(_ dictionary: Dictionary<String, AnyObject>){
-        time = dictionary[WeatherKeys.KeyTime.toKey()] as? Int64
+        time = dictionary[Keys.KeyTime.toKey()] as? Int64
     }
     
     class func ArrayFromDict(dict:Dictionary<String, Any>, keyWord:String) -> (Array<Any>) {
