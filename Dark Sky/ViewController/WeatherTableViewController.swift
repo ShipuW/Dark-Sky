@@ -34,7 +34,7 @@ class WeatherTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
         
         // Register Cell
-        tableView.register(UINib(nibName: "WeekWeatherCell", bundle: Bundle.main), forCellReuseIdentifier: reuseID)
+        tableView.register(UINib(nibName: reuseID, bundle: Bundle.main), forCellReuseIdentifier: reuseID)
         
         // Init refresh control
         refreshControl = UIRefreshControl()
@@ -132,7 +132,7 @@ class WeatherTableViewController: UITableViewController {
     
     
     
-    // MARK: - Table view data source
+    // MARK: - TableView - Data Source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -141,11 +141,7 @@ class WeatherTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherArray.count
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
-    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as!WeekWeatherCell
         
@@ -154,6 +150,12 @@ class WeatherTableViewController: UITableViewController {
         cell.configureForDailyResult(dailyResult)
         
         return cell
+    }
+    
+    // MARK - TableView - Delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
